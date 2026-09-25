@@ -2,7 +2,7 @@
 
 Telegram-монитор для отслеживания личных сообщений Telegram-аккаунта.
 
-Программа работает через Telethon и отдельного Telegram-бота для отправки уведомлений.
+Программа работает через [Telethon](https://github.com/LonamiWebs/Telethon) и отдельного Telegram-бота для отправки уведомлений.
 
 ## Возможности
 
@@ -41,5 +41,88 @@ Telegram-монитор для отслеживания личных сообщ�
 Клонируйте репозиторий:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/telegram-private-monitor.git
+git clone https://github.com/Mereoreon/telegram-private-monitor.git
 cd telegram-private-monitor
+```
+
+Установите зависимости:
+
+```bash
+pip install -r requirements.txt
+```
+
+Создайте `config.py` на основе `config.py.example` и укажите свои данные Telegram API и Bot Token.
+
+Запустите программу:
+
+```bash
+python main.py
+```
+
+При первом запуске Telethon попросит авторизовать Telegram-аккаунт.
+
+## Запуск в Termux
+
+Для работы в фоне можно использовать `tmux`:
+
+```bash
+pkg install tmux
+tmux new -s telegram-monitor
+python main.py
+```
+
+Чтобы оставить программу работать в фоне:
+
+```text
+Ctrl+B
+D
+```
+
+Вернуться к запущенной программе:
+
+```bash
+tmux attach -t telegram-monitor
+```
+
+При необходимости можно использовать:
+
+```bash
+termux-wake-lock
+```
+
+## Структура проекта
+
+```text
+telegram-private-monitor/
+├── main.py
+├── database.py
+├── config.py.example
+├── requirements.txt
+├── README.md
+├── README_TERMUX.md
+├── .gitignore
+└── LICENSE
+```
+
+## Безопасность
+
+Никогда не публикуйте в GitHub:
+
+- `config.py`
+- Telegram Bot Token
+- API Hash
+- файлы `.session`
+- базу данных `messages.db`
+- папку `data/`
+
+Секретные файлы добавлены в `.gitignore`.
+
+## Лицензия
+
+Проект распространяется под лицензией MIT.
+
+## Репозиторий
+
+GitHub:
+
+https://github.com/Mereoreon/telegram-private-monitor
