@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Telegram monitor secrets and data
+config.py
+*.session
+data/
+*.db
